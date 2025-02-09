@@ -30,7 +30,7 @@ const projects = [
 
 const ProjectTimeline = () => {
   return (
-    <div id="Projects" className="flex flex-col items-center justify-center min-h-screen lg:text-6xl text-white px-6">
+    <div id="Projects" className="flex flex-col items-center justify-center min-h-screen lg:text-6xl text-white px-4 sm:px-6">
       {/* Title Animation */}
       <motion.h2 
         className="my-20 text-center text-3xl lg:text-6xl lg:leading-normal tracking-tight font-bold"
@@ -41,7 +41,7 @@ const ProjectTimeline = () => {
         Projects
       </motion.h2>
 
-      <div className="relative border-l-4 border-cyan-500 p-6">
+      <div className="relative border-l-4 border-cyan-500 p-4 sm:p-6">
         {projects.map((project, index) => (
           <motion.div 
             key={index} 
@@ -53,7 +53,7 @@ const ProjectTimeline = () => {
           >
             {/* Year */}
             <motion.div 
-              className="text-lg font-semibold absolute -left-16"
+              className="text-base sm:text-lg font-semibold absolute -left-12 sm:-left-16"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -74,12 +74,12 @@ const ProjectTimeline = () => {
               href={project.link || "#"}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-96 p-4 bg-black border-2 border-cyan-500 rounded-xl shadow-lg transition-transform hover:scale-105"
+              className="relative w-full sm:w-96 p-4 bg-black border-2 border-cyan-500 rounded-xl shadow-lg transition-transform hover:scale-105"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <h3 className="text-xl font-bold">{project.title}</h3>
-              <p className="text-sm text-gray-300 mt-2">{project.description}</p>
+              <h3 className="text-lg sm:text-xl font-bold">{project.title}</h3>
+              <p className="text-xs sm:text-sm text-gray-300 mt-2">{project.description}</p>
               <motion.div 
                 className="absolute inset-0 border-2 border-cyan-500 rounded-xl blur-sm opacity-50"
                 whileHover={{ opacity: 1, scale: 1.05 }}

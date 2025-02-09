@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import logo from "../assets/raviKumarlogo.webp";
+import logo from "../assets/raviKumarLogo.webp";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");

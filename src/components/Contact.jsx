@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-// import emailjs from "@emailjs/browser"; // Un-comment when EmailJS is set up
-
+import emailjs from "@emailjs/browser"; 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -22,9 +21,9 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const serviceId = "your_service_id"; // Replace with EmailJS Service ID
-    const templateId = "your_template_id"; // Replace with EmailJS Template ID
-    const publicKey = "your_public_key"; // Replace with EmailJS Public Key
+    const serviceId = "service_w9m7vme"; // Replace with EmailJS Service ID
+    const templateId = "template_djwbuzs"; // Replace with EmailJS Template ID
+    const publicKey = "1XjIdEB0FSSS_V-c3"; // Replace with EmailJS Public Key
 
     try {
       // await emailjs.send(serviceId, templateId, formData, publicKey);

@@ -8,11 +8,7 @@ const projects = [
     description: "A Healthcare Management Application designed to streamline patient care by enabling seamless communication, appointment scheduling, and health tracking between patients and doctors. Built using ReactJS for the frontend, Django for backend logic, and PostgreSQL for robust data management.", 
     link: "https://github.com/Aromal004/CareNexus.git" 
   },
-  { 
-    year: "2023", 
-    title: "AI Chatbot", 
-    description: "Created an AI-powered chatbot using Python and OpenAI API." 
-  },
+  
 ];
 
 const ProjectTimeline = () => {

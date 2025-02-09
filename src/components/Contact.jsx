@@ -46,7 +46,7 @@ const Contact = () => {
     >
       {/* Title Animation */}
       <motion.h2 
-        className="text-4xl font-bold mb-10"
+        className="my-20 text-center text-3xl lg:text-6xl lg:leading-normal tracking-tight font-bold"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}

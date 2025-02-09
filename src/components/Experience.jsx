@@ -1,56 +1,78 @@
-import React from "react";
 import { motion } from "framer-motion";
 
-const experiences = [
-    { 
-        year: "2025", 
-        title: "ML Intern", 
-        description: "Worked on AICTE- Internship on AI: Transformative Learning with TechSaksham – A joint CSR initiative of Microsoft & SAP, focusing on AI Technologies." 
-    },
-    { 
-        year: "2024", 
-        title: "Web Development Intern", 
-        description: "Worked as a Web Development in DCubeAi,Technopark,Trivandrum" 
-      },
+const EXPERIENCES = [
+  {
+    year: "2025",
+    role: "ML Intern",
+    company: "AICTE.",
+    description:
+      "Internship on AI: Transformative Learning with TechSaksham – A joint CSR initiative of Microsoft & SAP, focusing on AI Technologies.",
+    technologies: ["Python", "Jupyter", "Streamlit"],
+  },
+  {
+    year: "2024",
+    role: "Full Stack Development Intern",
+    company: "DcubeAi,Trivandrum",
+    description:
+      "Designed and developed user interfaces for web applications using React. Worked closely with backend developers to integrate frontend components with Node.js APIs. Implemented responsive designs and optimized frontend performance.",
+    technologies: ["HTML", "CSS", "Vue.js", "MySQL"],
+  },
 ];
 
 const Experience = () => {
   return (
-    <div id="Experience" className="flex flex-col items-center justify-center min-h-screen text-white px-6">
-      
-      {/* Title Animation */}
-      <motion.h2 
-        className="text-4xl font-bold mb-10"
+    <div id="Experience" className="lg:mt-[-70px] pb-24 text-white">
+        
+      {/* Heading with Animation */}
+      <motion.h2
+        whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.5 }}
+        className="my-20 text-center text-3xl lg:text-6xl lg:leading-normal tracking-tight font-bold"
       >
         Experience
       </motion.h2>
-      
-      <div className="grid md:grid-cols-3 gap-8">
-        {experiences.map((exp, index) => (
-          <motion.div 
-            key={index} 
-            className="relative w-80 p-6 border-2 border-cyan-500 rounded-xl shadow-lg transition-transform hover:scale-105"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: index * 0.2 }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <h3 className="text-xl font-bold">{exp.title}</h3>
-            <h4 className="text-md font-semibold text-cyan-400">{exp.company}</h4>
-            <p className="text-sm text-gray-300 mt-2">{exp.description}</p>
-            <span className="absolute top-2 right-4 text-cyan-400 font-bold">{exp.year}</span>
-            
-            {/* Neon Glow Effect */}
-            <motion.div 
-              className="absolute inset-0 border-2 border-cyan-500 rounded-xl blur-sm opacity-50"
-              whileHover={{ opacity: 1, scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            ></motion.div>
-          </motion.div>
+
+      <div className="mt-[-15px] lg:mt-0">
+        {EXPERIENCES.map((experience, index) => (
+          <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
+            {/* Year - Left Side */}
+            <motion.div
+              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="w-full lg:w-1/4"
+            >
+              <p className="mb-2 text-sm text-gray-400">{experience.year}</p>
+            </motion.div>
+
+            {/* Experience Details - Right Side */}
+            <motion.div
+              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: 50 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="w-full max-w-xl lg:w-3/4"
+            >
+              <h3 className="mb-2 font-semibold text-lg">
+                {experience.role}{" "}
+                <span className="text-sm text-gray-400">- {experience.company}</span>
+              </h3>
+              <p className="mb-4 text-gray-300">{experience.description}</p>
+
+              {/* Tech Stack Badges */}
+              <div className="flex flex-wrap gap-2 mt-3">
+                {experience.technologies.map((tech, i) => (
+                  <motion.span
+                    key={i}
+                    whileHover={{ scale: 1.1 }}
+                    className="px-3 py-1 text-sm bg-gray-800 border border-gray-600 rounded-full"
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         ))}
       </div>
     </div>

@@ -3,20 +3,37 @@ import { motion } from "framer-motion";
 
 const projects = [
   { 
+    year: "2025", 
+    title: "SMS Spam Detection", 
+    description: "Developed an SMS spam detection model using Natural Language Processing (NLP) and Machine Learning. Preprocessed text data, extracted key features using TF-IDF, and trained a classification model to distinguish spam from legitimate messages with high accuracy. Implemented using Python, Scikit-Learn, and NLTK.", 
+    link: "https://github.com/Aromal004/SMS-Spam-Detection.git" 
+  },
+  { 
     year: "2024", 
     title: "CareNexus", 
     description: "A Healthcare Management Application designed to streamline patient care by enabling seamless communication, appointment scheduling, and health tracking between patients and doctors. Built using ReactJS for the frontend, Django for backend logic, and PostgreSQL for robust data management.", 
     link: "https://github.com/Aromal004/CareNexus.git" 
   },
-  
+  { 
+    year: "2024", 
+    title: "Movie Ticket Booking", 
+    description: "A Movie Ticket Booking System that enables users to browse movies, select showtimes, and book tickets seamlessly. Built using Django for backend logic and PostgreSQL for efficient data management.", 
+    link: "https://github.com/Aromal004/TicketBooking.git" 
+  },
+  { 
+    year: "2022", 
+    title: "School Database Management System", 
+    description: "A School Database Management System developed to manage student records, employee details, and attendance tracking. Built using Python for the application logic and MySQL for robust and reliable data storage.", 
+    link: "https://github.com/Aromal004/School-DB-Management.git" 
+  },
 ];
 
 const ProjectTimeline = () => {
   return (
-    <div id="Projects" className="flex flex-col items-center justify-center min-h-screen text-white px-6">
+    <div id="Projects" className="flex flex-col items-center justify-center min-h-screen lg:text-6xl text-white px-6">
       {/* Title Animation */}
       <motion.h2 
-        className="text-4xl font-bold mb-10"
+        className="my-20 text-center text-3xl lg:text-6xl lg:leading-normal tracking-tight font-bold"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}

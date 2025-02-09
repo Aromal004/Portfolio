@@ -28,7 +28,7 @@ const Hero = () => {
             <motion.img
               src={ProfileImage}
               alt="Profile"
-              className="rounded-full border-4 border-gray-300 shadow-xl w-full h-full object-cover"
+              className="rounded-full  shadow-xl w-full h-full object-cover"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             />
@@ -61,9 +61,9 @@ const Hero = () => {
           >
             {[
               { icon: FaLinkedin, href: "https://www.linkedin.com/in/aromal-a-j-46931a281/", label: "LinkedIn" },
-              { icon: FaGithub, href: "https://github.com/aromal", label: "GitHub" },
-              { icon: FaInstagram, href: "https://instagram.com/aromal", label: "Instagram" },
-              { icon: FaTwitter, href: "https://twitter.com/aromal", label: "Twitter" },
+              { icon: FaGithub, href: "https://github.com/Aromal004", label: "GitHub" },
+              { icon: FaInstagram, href: "https://www.instagram.com/a.r_o.m.a.l/", label: "Instagram" },
+            //   { icon: FaTwitter, href: "https://twitter.com/aromal", label: "Twitter" },
             ].map((social, index) => (
               <motion.a
                 key={index}
@@ -82,14 +82,22 @@ const Hero = () => {
 
           {/* Call-to-Action Button */}
           <motion.div className="mt-6" variants={fadeInUp}>
-            <motion.a
-              href="#contact-me"
-              className="inline-block rounded-lg border-2 border-gray-400 px-6 py-3 text-lg font-semibold text-white shadow-md transition-transform duration-300 hover:bg-blue-700 hover:scale-105 hover:border-blue-700"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              Contact Me
-            </motion.a>
+            <motion.button
+                className="inline-block rounded-[28px] border-2 border-gray-400 px-6 py-3 text-lg font-semibold text-white shadow-md transition-transform duration-300 hover:bg-blue-700 hover:scale-105 hover:border-blue-700"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                onClick={() => {
+                    const link = document.createElement("a");
+                    link.href = "/resume.pdf"; // Path to your resume in the public folder
+                    link.download = "Aromal_AJ_Resume.pdf"; // File name when downloaded
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }}
+                >
+                Download Resume
+            </motion.button>
+
           </motion.div>
         </motion.div>
       </motion.div>

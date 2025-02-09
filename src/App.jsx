@@ -1,5 +1,6 @@
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import ProjectTimeline from "./components/ProjectTimeline";
@@ -16,9 +17,14 @@ export default function App() {
         <Navbar />
         <Hero/>
         <ProjectTimeline/>
+        <div className="m-10 border-t border-white opacity-0 lg:opacity-25"></div>
         <Experience/>
+        <div className="m-10 border-t border-white opacity-0 lg:opacity-25"></div>
         <Technologies/>
+        <div className="m-10 border-t border-white opacity-0 lg:opacity-25"></div>
         <Contact/>
+        <div className="translate-y-20 border-t border-white opacity-0 lg:opacity-25"></div>
+        <Footer/>
       </div>
     </div>
   </>

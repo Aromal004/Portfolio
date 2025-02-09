@@ -2,9 +2,16 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const experiences = [
-  { year: "2021", title: "Software Intern", company: "ABC Tech", description: "Worked on frontend development using React.js and improved UI components." },
-  { year: "2022", title: "Junior Developer", company: "XYZ Solutions", description: "Developed REST APIs and worked on backend optimization using Node.js." },
-  { year: "2023", title: "Software Engineer", company: "TechCorp", description: "Led a team to develop scalable applications using Next.js and AWS." },
+    { 
+        year: "2025", 
+        title: "ML Intern", 
+        description: "Worked on AICTE- Internship on AI: Transformative Learning with TechSaksham – A joint CSR initiative of Microsoft & SAP, focusing on AI Technologies." 
+    },
+    { 
+        year: "2024", 
+        title: "Web Development Intern", 
+        description: "Worked as a Web Development in DCubeAi,Technopark,Trivandrum" 
+      },
 ];
 
 const Experience = () => {

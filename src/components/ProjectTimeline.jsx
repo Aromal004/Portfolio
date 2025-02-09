@@ -9,11 +9,6 @@ const projects = [
     link: "https://github.com/Aromal004/CareNexus.git" 
   },
   { 
-    year: "2022", 
-    title: "Portfolio Website", 
-    description: "Developed a personal portfolio using Next.js and Tailwind CSS." 
-  },
-  { 
     year: "2023", 
     title: "AI Chatbot", 
     description: "Created an AI-powered chatbot using Python and OpenAI API." 

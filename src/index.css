@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,6 +6,46 @@
 
 
 :root{
-  font-family: "Inter",san-serif;
+  font-family: "Bodoni Moda",san-serif;
   background: #000;
+}
+.text-cyan-400 {
+  --tw-text-opacity: 1;
+  color: rgb(34 211 238 / var(--tw-text-opacity, 1)) /* #22d3ee */;
+}
+.input-style {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid rgb(34 211 238);
+  background: transparent;
+  color: white;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-style::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-style:focus {
+  border-color: rgb(34 211 238);
+  transform: scale(1.05);
+}
+
+.btn-glow {
+  background: rgb(34 211 238);
+  color: black;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 0 10px rgb(34 211 238);
+}
+
+.btn-glow:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgb(34 211 238);
 }

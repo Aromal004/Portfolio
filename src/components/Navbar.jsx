@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import logo from "../assets/raviKumarLogo.png";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
@@ -46,10 +46,10 @@ const Navbar = () => {
         style={{ width: `${scrollProgress}%` }}
       />
 
-      <div className="flex items-center justify-between py-4 px-8">
+      <div className="flex items-center justify-between px-8">
         {/* Logo */}
         <a href="/" aria-label="Home">
-          <img src={logo} className="mx-2" width={50} height={33} alt="logo" />
+          <img src={logo} className="mx-2" width={120} alt="logo" />
         </a>
 
         {/* Desktop Navigation */}

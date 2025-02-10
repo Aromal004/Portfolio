@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser"; 
+import emailjs from "@emailjs/browser";
+
 const Contact = () => {
+  const formRef = useRef(null); // Reference to the form
+  const [isSent, setIsSent] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -9,8 +12,6 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-
-  const [isSent, setIsSent] = useState(false);
 
   // Handle input changes
   const handleChange = (e) => {
@@ -21,12 +22,12 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const serviceId = "service_w9m7vme"; // Replace with EmailJS Service ID
-    const templateId = "template_djwbuzs"; // Replace with EmailJS Template ID
-    const publicKey = "1XjIdEB0FSSS_V-c3"; // Replace with EmailJS Public Key
+    const serviceId = "service_14w9oyc"; // Your EmailJS Service ID
+    const templateId = "template_djwbuzs"; // Your EmailJS Template ID
+    const publicKey = "1XjIdEB0FSSS_V-c3"; // Your EmailJS Public Key
 
     try {
-      // await emailjs.send(serviceId, templateId, formData, publicKey);
+      await emailjs.sendForm(serviceId, templateId, formRef.current, publicKey);
       setIsSent(true);
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     } catch (error) {
@@ -54,6 +55,7 @@ const Contact = () => {
       </motion.h2>
 
       <motion.form 
+        ref={formRef}
         onSubmit={handleSubmit} 
         className="grid md:grid-cols-2 gap-6 w-full max-w-4xl"
         initial={{ opacity: 0, scale: 0.9 }}
@@ -71,7 +73,7 @@ const Contact = () => {
               value={formData[field]}
               onChange={handleChange}
               required
-              className="input-style"
+              className="w-full p-3 border-2 border-gray-700 rounded-md bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -86,7 +88,7 @@ const Contact = () => {
           value={formData.message}
           onChange={handleChange}
           required
-          className="input-style h-40 md:h-full"
+          className="w-full p-3 border-2 border-gray-700 rounded-md bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 h-40 md:h-full"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -95,7 +97,7 @@ const Contact = () => {
         {/* Submit Button */}
         <motion.button 
           type="submit" 
-          className="btn-glow md:col-span-2"
+          className="bg-cyan-500 text-white font-bold py-3 px-6 rounded-md transition-transform hover:scale-105 active:scale-95 focus:outline-none md:col-span-2"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.3 }}

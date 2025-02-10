@@ -50,8 +50,7 @@ const Hero = () => {
             className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed" 
             variants={fadeInUp}
           >
-            I'm a software developer passionate about building innovative solutions.
-            Always eager to learn and explore new technologies.
+           I am Aromal A J, a passionate and dedicated Computer Science and Engineering student at TKM College of Engineering. With a strong foundation in software development, web technologies, and data management, I thrive on solving complex problems and creating innovative solutions. I have hands-on experience in full-stack development, having built end-to-end web applications using Django, ReactJS, PostgreSQL, and more.
           </motion.p>
 
           {/* Social Media Icons */}

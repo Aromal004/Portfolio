@@ -50,7 +50,11 @@ const Hero = () => {
             className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed" 
             variants={fadeInUp}
           >
-           I am Aromal A J, a passionate and dedicated Computer Science and Engineering student at TKM College of Engineering. With a strong foundation in software development, web technologies, and data management, I thrive on solving complex problems and creating innovative solutions. I have hands-on experience in full-stack development, having built end-to-end web applications using Django, ReactJS, PostgreSQL, and more.
+           I am Aromal A J, Passionate and self-driven Computer Science undergraduate with a keen interest in Machine Learning, web development, and
+            cloud technologies. Gained hands-on experience through impactful internships at Sedai, IITM Pravartak, and DCUBE Ai,
+            contributing to real-world projects in performance benchmarking, system monitoring, and full-stack development. Skilled in
+            Python, AWS, Django, and distributed systems. Eager to learn continuously and contribute meaningfully to innovative tech
+            teams and challenging projects.
           </motion.p>
 
           {/* Social Media Icons */}

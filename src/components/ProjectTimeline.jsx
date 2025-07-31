@@ -4,6 +4,12 @@ import { motion } from "framer-motion";
 const projects = [
   { 
     year: "2025", 
+    title: "PostgreSQL Security & Monitoring System", 
+    description: "This project enhances PostgreSQL security, index integrity, and monitoring by implementing advanced database management features. It ensures strict password policies, automated index integrity checks, historical performance tracking, and real-time monitoring using Prometheus and Grafana.",
+    link: "https://github.com/AryaRajeev08/IITM-Mini-Project.git" 
+  },
+  { 
+    year: "2025", 
     title: "SMS Spam Detection", 
     description: "Developed an SMS spam detection model using NLP and Machine Learning. Used TF-IDF feature extraction and trained models to distinguish spam from legitimate messages.",
     link: "https://github.com/Aromal004/SMS-Spam-Detection.git" 
@@ -76,7 +82,7 @@ const ProjectTimeline = () => {
               className="relative w-full sm:w-96 p-5 bg-black border-2 border-cyan-500 rounded-xl shadow-lg transition-transform"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              animate={{ scale: hoveredIndex === index ? 1.1 : 1 }}
+              animate={{ scale: hoveredIndex === index ? 1.05 : 1 }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
             >
               <h3 className="text-lg sm:text-xl font-bold">{project.title}</h3>
@@ -86,17 +92,17 @@ const ProjectTimeline = () => {
                 className="overflow-hidden"
                 initial={{ maxHeight: 0, opacity: 0 }}
                 animate={{
-                  maxHeight: hoveredIndex === index ? "150px" : "0px",
+                  maxHeight: hoveredIndex === index ? "500px" : "0px",
                   opacity: hoveredIndex === index ? 1 : 0
                 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
               >
-                <p className="mt-2 text-sm text-gray-300">{project.description}</p>
+                <p className="mt-2 text-sm text-gray-300 leading-relaxed">{project.description}</p>
                 <a 
                   href={project.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="block mt-3 text-cyan-400 underline text-sm"
+                  className="block mt-3 text-cyan-400 underline text-sm hover:text-cyan-300 transition-colors"
                 >
                   View on GitHub
                 </a>

@@ -27,6 +27,12 @@ const projects = [
     link: "https://github.com/Aromal004/TicketBooking.git" 
   },
   { 
+    year: "2024", 
+    title: "NutriAI", 
+    description: "An AI-powered React application that generates personalized diet plans based on region, budget, and user preferences.",
+    link: "https://github.com/AlanMVarghese/NutriAI" 
+  },
+  { 
     year: "2022", 
     title: "School Database Management System", 
     description: "Developed a database system for student records, employee details, and attendance tracking using Python & MySQL.",

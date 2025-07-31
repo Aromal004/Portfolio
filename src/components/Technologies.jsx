@@ -1,5 +1,5 @@
-import { FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaReact } from "react-icons/fa";
-import { SiC, SiMysql, SiPostgresql, SiDjango } from "react-icons/si";
+import { FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaReact, FaAws } from "react-icons/fa";
+import { SiC, SiMysql, SiPostgresql, SiDjango, SiDocker, SiTailwindcss } from "react-icons/si";
 import { DiDatabase } from "react-icons/di";
 import { motion } from "framer-motion";
 
@@ -33,7 +33,7 @@ const Technologies = () => {
         whileInView={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: -100 }}
         transition={{ duration: 1.5 }}
-        className="flex flex-wrap items-center justify-center gap-6"
+        className="flex flex-wrap items-center justify-center gap-8 lg:gap-12 max-w-6xl mx-auto"
       >
         {[
           { icon: FaPython, color: "text-yellow-500", duration: 2 },
@@ -45,15 +45,18 @@ const Technologies = () => {
           { icon: SiPostgresql, color: "text-sky-700", duration: 6.5 },
           { icon: SiDjango, color: "text-green-600", duration: 7 },
           { icon: FaReact, color: "text-cyan-400", duration: 7.5 },
+          { icon: SiDocker, color: "text-blue-500", duration: 8 },
+          { icon: FaAws, color: "text-orange-500", duration: 8.5 },
+          { icon: SiTailwindcss, color: "text-cyan-400", duration: 9 },
         ].map(({ icon: Icon, color, duration, label }, index) => (
           <motion.div
             key={index}
             initial="initial"
             animate="animate"
             variants={iconVariants(duration)}
-            className="p-4"
+            className="p-6"
           >
-            <Icon className={`text-7xl ${color}`} />
+            <Icon className={`text-6xl lg:text-7xl ${color}`} />
           </motion.div>
         ))}
       </motion.div>

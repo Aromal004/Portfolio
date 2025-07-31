@@ -2,7 +2,23 @@ import { motion } from "framer-motion";
 
 const EXPERIENCES = [
   {
-    year: "2025",
+    year: "June 2025 - July 2025",
+    role: "R&D Intern",
+    company: "Sedai Inc.",
+    description:
+      "Conducted performance benchmarking of containerized applications across multiple AWS Fargate buckets, analyzing, startup time, latency, and throughput under varying deployment scenarios to evaluate consistency and variability.",
+    technologies: ["Python", "AWS", "DevOps","Docker"],
+  },
+  {
+    year: "Feb 2025 – May 2025",
+    role: "Developer",
+    company: "IITM Pravartak Technologies",
+    description:
+      "Enhanced PostgreSQL security, index integrity, and monitoring by implementing advanced database management features. It ensures strict password policies, automated index integrity checks, historical performance tracking, and real-time monitoring using Prometheus and Grafana.",
+    technologies: ["Python", "PLpqSQL", "PostgreSQL","Prometheus","Grafana"],
+  },
+  {
+    year: "Feb 2025",
     role: "ML Intern",
     company: "AICTE.",
     description:
@@ -10,7 +26,7 @@ const EXPERIENCES = [
     technologies: ["Python", "Jupyter", "Streamlit"],
   },
   {
-    year: "2024",
+    year: "July 2024",
     role: "Full Stack Development Intern",
     company: "DcubeAi,Trivandrum",
     description:

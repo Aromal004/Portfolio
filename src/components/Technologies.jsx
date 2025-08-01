@@ -53,63 +53,6 @@ const Technologies = () => {
           ))}
         </div>
 
-        {/* Skills Categories */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-20"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Frontend Development",
-                skills: ["React", "JavaScript", "HTML/CSS", "Tailwind CSS", "Vue.js"],
-                color: "from-blue-500 to-cyan-500"
-              },
-              {
-                title: "Backend Development",
-                skills: ["Python", "Django", "PostgreSQL", "MySQL", "Node.js"],
-                color: "from-green-500 to-emerald-500"
-              },
-              {
-                title: "DevOps & Cloud",
-                skills: ["AWS", "Docker", "Git", "CI/CD", "Linux"],
-                color: "from-purple-500 to-pink-500"
-              }
-            ].map((category, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index === 1 ? 0 : (index === 0 ? -50 : 50) }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
-              >
-                <h3 className={`text-xl font-bold mb-4 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
-                  {category.title}
-                </h3>
-                <div className="space-y-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <motion.div
-                      key={skillIndex}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: skillIndex * 0.1 }}
-                      className="flex items-center space-x-2"
-                    >
-                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${category.color}`}></div>
-                      <span className="text-gray-600 dark:text-gray-300">{skill}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </div>
   );

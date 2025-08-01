@@ -1,44 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
-const projects = [
-  { 
-    year: "2025", 
-    title: "PostgreSQL Security & Monitoring System", 
-    description: "This project enhances PostgreSQL security, index integrity, and monitoring by implementing advanced database management features. It ensures strict password policies, automated index integrity checks, historical performance tracking, and real-time monitoring using Prometheus and Grafana.",
-    link: "https://github.com/AryaRajeev08/IITM-Mini-Project.git" 
-  },
-  { 
-    year: "2025", 
-    title: "SMS Spam Detection", 
-    description: "Developed an SMS spam detection model using NLP and Machine Learning. Used TF-IDF feature extraction and trained models to distinguish spam from legitimate messages.",
-    link: "https://github.com/Aromal004/SMS-Spam-Detection.git" 
-  },
-  { 
-    year: "2024", 
-    title: "CareNexus", 
-    description: "A Healthcare Management App enabling communication, appointment scheduling, and health tracking between patients and doctors. Built with ReactJS & Django.",
-    link: "https://github.com/Aromal004/CareNexus.git" 
-  },
-  { 
-    year: "2024", 
-    title: "Movie Ticket Booking", 
-    description: "A seamless Movie Ticket Booking System where users can browse movies, select showtimes, and book tickets. Powered by Django & PostgreSQL.",
-    link: "https://github.com/Aromal004/TicketBooking.git" 
-  },
-  { 
-    year: "2024", 
-    title: "NutriAI", 
-    description: "An AI-powered React application that generates personalized diet plans based on region, budget, and user preferences.",
-    link: "https://github.com/AlanMVarghese/NutriAI" 
-  },
-  { 
-    year: "2022", 
-    title: "School Database Management System", 
-    description: "Developed a database system for student records, employee details, and attendance tracking using Python & MySQL.",
-    link: "https://github.com/Aromal004/School-DB-Management.git" 
-  },
-];
+import { projects } from "../data/projects";
 
 const ProjectTimeline = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -101,7 +63,7 @@ const ProjectTimeline = () => {
                   maxHeight: hoveredIndex === index ? "500px" : "0px",
                   opacity: hoveredIndex === index ? 1 : 0
                 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <p className="mt-2 text-sm text-gray-300 leading-relaxed">{project.description}</p>
                 <a 

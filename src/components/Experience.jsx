@@ -100,11 +100,11 @@ const Experience = () => {
   };
 
   return (
-    <div id="Experience" className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <div id="Experience" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"
+          className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl hidden sm:block"
           animate={{
             x: [0, 30, 0],
             y: [0, -30, 0],
@@ -117,7 +117,7 @@ const Experience = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"
+          className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl hidden sm:block"
           animate={{
             x: [0, -40, 0],
             y: [0, 40, 0],
@@ -138,10 +138,10 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
           <motion.h2 
-            className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -150,7 +150,7 @@ const Experience = () => {
             Experience
           </motion.h2>
           <motion.p 
-            className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+            className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -185,7 +185,7 @@ const Experience = () => {
           </motion.div>
 
           <motion.div 
-            className="space-y-16"
+            className="space-y-12 sm:space-y-16"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -204,7 +204,7 @@ const Experience = () => {
                 {/* Timeline Dot with Glow */}
                 <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 z-20">
                   <motion.div 
-                    className="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-white dark:border-gray-800 relative"
+                    className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-white dark:border-gray-800 relative"
                     variants={dotVariants}
                     whileHover="hover"
                   >
@@ -225,11 +225,11 @@ const Experience = () => {
                 </div>
 
                 {/* Content Card */}
-                <div className={`ml-16 md:ml-0 md:w-5/12 ${index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
+                <div className={`ml-12 sm:ml-16 md:ml-0 md:w-5/12 ${index % 2 === 0 ? 'md:mr-auto md:pr-8 lg:pr-12' : 'md:ml-auto md:pl-8 lg:pl-12'}`}>
                   <motion.div
                     variants={cardVariants}
                     whileHover="hover"
-                    className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 border border-white/20 dark:border-gray-700/50 relative overflow-hidden group"
+                    className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 border border-white/20 dark:border-gray-700/50 relative overflow-hidden group touch-manipulation"
                   >
                     {/* Animated background gradient */}
                     <motion.div
@@ -237,9 +237,9 @@ const Experience = () => {
                       variants={glowVariants}
                     />
                     
-                    {/* Floating particles */}
+                    {/* Floating particles - Hidden on mobile for better performance */}
                     <motion.div
-                      className="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full"
+                      className="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full hidden sm:block"
                       animate={{
                         y: [0, -10, 0],
                         opacity: [0.5, 1, 0.5]
@@ -251,7 +251,7 @@ const Experience = () => {
                       }}
                     />
                     <motion.div
-                      className="absolute bottom-4 left-4 w-1 h-1 bg-pink-400 rounded-full"
+                      className="absolute bottom-4 left-4 w-1 h-1 bg-pink-400 rounded-full hidden sm:block"
                       animate={{
                         y: [0, 8, 0],
                         opacity: [0.3, 0.8, 0.3]
@@ -266,10 +266,10 @@ const Experience = () => {
                     {/* Content */}
                     <div className="relative z-10">
                       {/* Header with enhanced animations */}
-                      <div className="flex items-start justify-between mb-6">
-                        <div>
+                      <div className="flex items-start justify-between mb-4 sm:mb-6">
+                        <div className="flex-1">
                           <motion.h3 
-                            className="text-2xl font-bold text-gray-900 dark:text-white mb-3"
+                            className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3"
                             whileHover={{ 
                               color: "#8B5CF6",
                               scale: 1.02
@@ -278,25 +278,25 @@ const Experience = () => {
                           >
                             {experience.role}
                           </motion.h3>
-                          <div className="flex items-center text-purple-600 dark:text-purple-400 mb-3">
-                            <FaBriefcase className="mr-3 text-lg" />
-                            <span className="font-semibold text-lg">{experience.company}</span>
+                          <div className="flex items-center text-purple-600 dark:text-purple-400 mb-2 sm:mb-3">
+                            <FaBriefcase className="mr-2 sm:mr-3 text-base sm:text-lg" />
+                            <span className="font-semibold text-base sm:text-lg">{experience.company}</span>
                           </div>
                           <div className="flex items-center text-gray-500 dark:text-gray-400">
-                            <FaCalendarAlt className="mr-3" />
-                            <span className="text-sm">{experience.year}</span>
+                            <FaCalendarAlt className="mr-2 sm:mr-3 text-sm" />
+                            <span className="text-xs sm:text-sm">{experience.year}</span>
                           </div>
                         </div>
                         
                         {/* Static icon */}
-                        <div className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full">
-                          <FaBriefcase className="text-white text-xl" />
+                        <div className="p-2 sm:p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full ml-3">
+                          <FaBriefcase className="text-white text-lg sm:text-xl" />
                         </div>
                       </div>
 
                       {/* Description with typewriter effect */}
                       <motion.p 
-                        className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-lg"
+                        className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base lg:text-lg"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
@@ -306,7 +306,7 @@ const Experience = () => {
                       </motion.p>
 
                       {/* Technologies with enhanced animations */}
-                      <div className="flex flex-wrap gap-3">
+                      <div className="flex flex-wrap gap-2 sm:gap-3">
                         {experience.technologies.map((tech, techIndex) => (
                           <motion.span
                             key={techIndex}
@@ -315,7 +315,7 @@ const Experience = () => {
                               y: -3
                             }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-4 py-2 text-sm bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/50 dark:to-pink-900/50 text-purple-700 dark:text-purple-300 rounded-full font-medium cursor-pointer border border-purple-200 dark:border-purple-700"
+                            className="px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/50 dark:to-pink-900/50 text-purple-700 dark:text-purple-300 rounded-full font-medium cursor-pointer border border-purple-200 dark:border-purple-700 touch-manipulation"
                             initial={{ opacity: 0, scale: 0.8, y: 20 }}
                             whileInView={{ opacity: 1, scale: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -333,7 +333,7 @@ const Experience = () => {
 
                     {/* Corner accent */}
                     <motion.div
-                      className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-bl-3xl"
+                      className="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-bl-2xl sm:rounded-bl-3xl"
                       initial={{ opacity: 0, scale: 0 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}

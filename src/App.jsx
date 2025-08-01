@@ -18,7 +18,7 @@ function App() {
         <CustomCursor />
         <ThemeToggle />
         <Navbar />
-        <main>
+        <main className="relative">
           <Hero />
           <Experience />
           <ProjectTimeline />

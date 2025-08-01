@@ -4,11 +4,26 @@ const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const requestRef = useRef();
   const mousePositionRef = useRef({ x: 0, y: 0 });
   const currentPositionRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
+    // Detect touch device
+    const checkTouchDevice = () => {
+      const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      setIsTouchDevice(isTouch);
+      return isTouch;
+    };
+
+    const isTouch = checkTouchDevice();
+
+    // If it's a touch device, don't initialize custom cursor
+    if (isTouch) {
+      return;
+    }
+
     const updateMousePosition = (e) => {
       mousePositionRef.current = { x: e.clientX, y: e.clientY };
     };
@@ -64,12 +79,19 @@ const CustomCursor = () => {
     };
   }, []);
 
+  // Don't render custom cursor on touch devices
+  if (isTouchDevice) {
+    return null;
+  }
+
   return (
     <>
-      {/* Hide default cursor */}
+      {/* Hide default cursor only on non-touch devices */}
       <style jsx>{`
-        * {
-          cursor: none !important;
+        @media (hover: hover) and (pointer: fine) {
+          * {
+            cursor: none !important;
+          }
         }
       `}</style>
 

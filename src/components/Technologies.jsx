@@ -36,7 +36,7 @@ const Technologies = () => {
   };
 
   return (
-    <div id="Skills" className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div id="Skills" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -44,12 +44,12 @@ const Technologies = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
             Skills & Technologies
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
             The tools and technologies I use to bring ideas to life
           </p>
         </motion.div>
@@ -60,7 +60,7 @@ const Technologies = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8"
+          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6 sm:gap-8"
         >
           {technologies.map((tech, index) => (
             <motion.div
@@ -70,8 +70,9 @@ const Technologies = () => {
               className="flex justify-center"
             >
               <motion.div
-                className={`text-5xl lg:text-6xl ${tech.color} cursor-pointer`}
+                className={`text-4xl sm:text-5xl lg:text-6xl ${tech.color} cursor-pointer touch-manipulation`}
                 whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.9 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
                 <tech.icon />

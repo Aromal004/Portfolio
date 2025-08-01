@@ -159,13 +159,11 @@ const ProjectTimeline = () => {
                     </div>
                   </div>
                   
-                  <motion.h3 
+                  <h3 
                     className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2"
-                    whileHover={{ color: "#8B5CF6" }}
-                    transition={{ duration: 0.2 }}
                   >
                     {project.title}
-                  </motion.h3>
+                  </h3>
                 </div>
 
                 {/* Project Description */}

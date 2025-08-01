@@ -33,19 +33,17 @@ const Technologies = () => {
               whileHover={{ scale: 1.1, y: -10 }}
               className="group"
             >
+
               <motion.div
                 className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 text-center"
-                whileHover={{ rotateY: 10 }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex flex-col items-center space-y-3">
-                  <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
+                  <div
                     className={`text-4xl ${tech.color}`}
                   >
                     <tech.icon />
-                  </motion.div>
+                  </div>
                   
                   {/* Gradient Border Effect */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300 -z-10"></div>

@@ -180,8 +180,7 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   whileHover={{ 
                     scale: 1.2, 
-                    y: -5,
-                    rotate: 5
+                    y: -5
                   }}
                   whileTap={{ scale: 0.9 }}
                   className="p-3 bg-white/10 dark:bg-gray-800/50 backdrop-blur-md rounded-full text-gray-700 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400 transition-all duration-300"

@@ -2,6 +2,39 @@ import { motion } from "framer-motion";
 import { technologies } from "../data/technologies";
 
 const Technologies = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const iconVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    },
+    hover: {
+      scale: 1.2,
+      y: -5,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <div id="Skills" className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,37 +55,30 @@ const Technologies = () => {
         </motion.div>
 
         {/* Technologies Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8"
+        >
           {technologies.map((tech, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.1, y: -10 }}
-              className="group"
+              variants={iconVariants}
+              whileHover="hover"
+              className="flex justify-center"
             >
-
               <motion.div
-                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 text-center"
-                transition={{ duration: 0.3 }}
+                className={`text-5xl lg:text-6xl ${tech.color} cursor-pointer`}
+                whileHover={{ scale: 1.2, y: -5 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <div className="flex flex-col items-center space-y-3">
-                  <div
-                    className={`text-4xl ${tech.color}`}
-                  >
-                    <tech.icon />
-                  </div>
-                  
-                  {/* Gradient Border Effect */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300 -z-10"></div>
-                </div>
+                <tech.icon />
               </motion.div>
             </motion.div>
           ))}
-        </div>
-
+        </motion.div>
       </div>
     </div>
   );

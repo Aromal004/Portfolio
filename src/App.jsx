@@ -9,36 +9,22 @@ import Technologies from './components/Technologies';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ThemeToggle from './components/ThemeToggle';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-        {/* Theme Toggle */}
+        <CustomCursor />
         <ThemeToggle />
-        
-        {/* Navigation */}
         <Navbar />
-        
-        {/* Main Content */}
         <main>
-          {/* Hero Section */}
           <Hero />
-          
-          {/* Experience Section */}
           <Experience />
-          
-          {/* Projects Section */}
           <ProjectTimeline />
-          
-          {/* Technologies Section */}
           <Technologies />
-          
-          {/* Contact Section */}
           <Contact />
         </main>
-        
-        {/* Footer */}
         <Footer />
       </div>
     </ThemeProvider>

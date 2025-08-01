@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
+import { useTheme } from '../context/ThemeContext';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,9 +62,25 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Logo */}
+            {/* Mobile menu button - Left */}
+            <div className="md:hidden relative z-50">
+              <motion.button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-gray-700 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400 p-2 rounded-md touch-manipulation flex items-center justify-center w-10 h-10"
+                whileTap={{ scale: 0.95 }}
+                aria-label="Toggle menu"
+              >
+                {isOpen ? (
+                  <FaTimes size={24} className="text-gray-700 dark:text-gray-300" />
+                ) : (
+                  <FaBars size={24} className="text-gray-700 dark:text-gray-300" />
+                )}
+              </motion.button>
+            </div>
+
+            {/* Logo - Center */}
             <motion.div
-              className="flex items-center space-x-3"
+              className="flex items-center justify-center flex-1 md:flex-none md:justify-start"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
@@ -92,15 +110,26 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
+            {/* Theme Toggle - Right (Mobile) / Hidden (Desktop) */}
+            <div className="md:hidden relative z-50">
               <motion.button
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-gray-700 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400 p-2 rounded-md touch-manipulation"
+                onClick={toggleTheme}
+                className="text-gray-700 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400 p-2 rounded-md touch-manipulation flex items-center justify-center w-10 h-10"
                 whileTap={{ scale: 0.95 }}
-                aria-label="Toggle menu"
+                aria-label="Toggle theme"
               >
-                {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+                <motion.div
+                  initial={false}
+                  animate={{ rotate: isDarkMode ? 180 : 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="flex items-center justify-center"
+                >
+                  {isDarkMode ? (
+                    <FaSun size={20} className="text-gray-700 dark:text-gray-300" />
+                  ) : (
+                    <FaMoon size={20} className="text-gray-700 dark:text-gray-300" />
+                  )}
+                </motion.div>
               </motion.button>
             </div>
           </div>

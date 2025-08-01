@@ -69,7 +69,7 @@ const Navbar = () => {
               <img 
                 src={logo} 
                 alt="Logo" 
-                className="h-14 w-auto"
+                className="h-20 w-auto"
               />
             </motion.div>
 

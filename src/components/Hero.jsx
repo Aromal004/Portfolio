@@ -1,108 +1,153 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-import ProfileImage from "../assets/PIC.jpg"; // Ensure this path is correct
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa';
+import { useTheme } from '../context/ThemeContext';
 
 const Hero = () => {
-  return (
-    <div className="min-h-screen flex items-center justify-center pt-24 px-6" id="home">
-      <motion.div 
-        className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1, transition: { staggerChildren: 0.3 } },
-        }}
-      >
-        
-        {/* Profile Image Container */}
-        <motion.div className="relative group" variants={fadeInUp}>
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-100 transition duration-1000"></div>
-          <div className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px]">
-            <motion.img
-              src={ProfileImage}
-              alt="Profile"
-              className="rounded-full  shadow-xl w-full h-full object-cover"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            />
-          </div>
-        </motion.div>
+  const { isDarkMode } = useTheme();
 
-        {/* Content Section */}
-        <motion.div className="flex flex-col max-w-xl space-y-6 text-center md:text-left">
-          <motion.div className="space-y-2" variants={fadeInUp}>
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Hi, I'm Aromal
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300">
-              Software Engineer
+  const socialLinks = [
+    { icon: FaGithub, href: 'https://github.com/Aromal004', label: 'GitHub' },
+    { icon: FaLinkedin, href: 'https://linkedin.com/in/aromal-rajeev', label: 'LinkedIn' },
+    { icon: FaEnvelope, href: 'mailto:aromalaj9111@gmail.com', label: 'Email' },
+  ];
+
+  return (
+    <div id="Home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 dark:from-gray-900 dark:via-purple-900 dark:to-gray-900">
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }}></div>
+      </div>
+
+      {/* Floating Elements */}
+      <motion.div
+        className="absolute top-20 left-20 w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-20"
+        animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20"
+        animate={{ y: [0, 20, 0], x: [0, -10, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Main Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-8"
+        >
+          {/* Greeting */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <h2 className="text-lg sm:text-xl text-purple-600 dark:text-purple-400 font-medium mb-4">
+              Hello, I'm
             </h2>
           </motion.div>
 
-          <motion.p 
-            className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed" 
-            variants={fadeInUp}
+          {/* Name */}
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-4xl sm:text-6xl lg:text-8xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent"
           >
-           I am Aromal A J, Passionate and self-driven Computer Science undergraduate with a keen interest in Machine Learning, web development, and
-            cloud technologies. Gained hands-on experience through impactful internships at Sedai, IITM Pravartak, and DCUBE Ai,
-            contributing to real-world projects in performance benchmarking, system monitoring, and full-stack development. Skilled in
-            Python, AWS, Django, and distributed systems. Eager to learn continuously and contribute meaningfully to innovative tech
-            teams and challenging projects.
+            Aromal AJ
+          </motion.h1>
+
+          {/* Title */}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 font-medium"
+          >
+            Full Stack Developer & ML Enthusiast
+          </motion.h2>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400 leading-relaxed"
+          >
+            Passionate about creating innovative solutions and turning ideas into reality. 
+            Specialized in modern web technologies and machine learning applications.
           </motion.p>
 
-          {/* Social Media Icons */}
-          <motion.div 
-            className="flex justify-center md:justify-start gap-6 pt-4"
-            variants={fadeInUp}
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            {[
-              { icon: FaLinkedin, href: "https://www.linkedin.com/in/aromal-a-j-46931a281/", label: "LinkedIn" },
-              { icon: FaGithub, href: "https://github.com/Aromal004", label: "GitHub" },
-              { icon: FaInstagram, href: "https://www.instagram.com/a.r_o.m.a.l/", label: "Instagram" },
-            //   { icon: FaTwitter, href: "https://twitter.com/aromal", label: "Twitter" },
-            ].map((social, index) => (
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <FaDownload className="inline mr-2" />
+              Download Resume
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 border-2 border-purple-500 text-purple-500 dark:text-purple-400 rounded-full font-medium hover:bg-purple-500 hover:text-white transition-all duration-300"
+            >
+              View Projects
+            </motion.button>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="flex justify-center space-x-6"
+          >
+            {socialLinks.map((link, index) => (
               <motion.a
-                key={index}
-                href={social.href}
+                key={link.label}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={social.label}
-                className="text-3xl hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-500 transform transition-all duration-300"
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.9 }}
+                className="p-3 bg-white/10 dark:bg-gray-800/50 backdrop-blur-md rounded-full text-gray-700 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400 transition-all duration-300"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1.4 + index * 0.1 }}
               >
-                <social.icon />
+                <link.icon size={24} />
               </motion.a>
             ))}
           </motion.div>
-
-          {/* Call-to-Action Button */}
-          <motion.div className="mt-6" variants={fadeInUp}>
-            <motion.button
-                className="inline-block rounded-[28px] border-2 border-gray-400 px-6 py-3 text-lg font-semibold text-white shadow-md transition-transform duration-300 hover:bg-blue-700 hover:scale-105 hover:border-blue-700"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                onClick={() => {
-                    const link = document.createElement("a");
-                    link.href = "/resume.pdf"; // Path to your resume in the public folder
-                    link.download = "Aromal_AJ_Resume.pdf"; // File name when downloaded
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                }}
-                >
-                Download Resume
-            </motion.button>
-
-          </motion.div>
         </motion.div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center">
+          <motion.div
+            className="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-2"
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </div>
       </motion.div>
     </div>
   );

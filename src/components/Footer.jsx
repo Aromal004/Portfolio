@@ -14,8 +14,8 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-gray-900 to-purple-900 dark:from-gray-800 dark:to-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand Section */}
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8"> */}
+          {/* Brand Section
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -48,9 +48,9 @@ const Footer = () => {
                 </motion.a>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
 
-          {/* Quick Links */}
+          {/* Quick Links
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,9 +84,9 @@ const Footer = () => {
                 </motion.li>
               ))}
             </ul>
-          </motion.div>
+          </motion.div> */}
 
-          {/* Contact Info */}
+          {/* Contact Info
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -101,7 +101,7 @@ const Footer = () => {
               <p>📱 +91 956 271 7654</p>
             </div>
           </motion.div>
-        </div>
+        </div> */}
 
         {/* Bottom Bar */}
         <motion.div
@@ -112,9 +112,7 @@ const Footer = () => {
           className="border-t border-white/20 mt-8 pt-8 text-center"
         >
           <p className="text-gray-300">
-            © {currentYear} Aromal AJ. Made with{' '}
-            <FaHeart className="inline text-red-500 mx-1" />
-            using React & Tailwind CSS
+            © {currentYear} Aromal AJ. All Rights Reserved.
           </p>
         </motion.div>
       </div>

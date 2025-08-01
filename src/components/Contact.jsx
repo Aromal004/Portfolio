@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -45,8 +45,8 @@ const Contact = () => {
 
   const socialLinks = [
     { icon: FaGithub, href: 'https://github.com/Aromal004', label: 'GitHub' },
-    { icon: FaLinkedin, href: 'https://linkedin.com/in/aromal-rajeev', label: 'LinkedIn' },
-    { icon: FaTwitter, href: 'https://twitter.com/aromal', label: 'Twitter' }
+    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/aromal-a-j-46931a281/', label: 'LinkedIn' },
+    { icon: FaInstagram, href: 'https://www.instagram.com/a.r_o.m.a.l/', label: 'Instagram' }
   ];
 
   return (
@@ -63,9 +63,6 @@ const Contact = () => {
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-4">
             Get In Touch
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Let's work together on your next project
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

@@ -1,5 +1,17 @@
 export const projects = [
   { 
+    year: "2026", 
+    title: "GitChat", 
+    description: "Developed a branching conversation interface for AI chat interactions with RAG capabilities. GitChat allows you toexplore multiple conversation paths simultaneously, visualize conversation trees, upload documents, and manage chat history with an intuitive UI.",
+    link: "https://github.com/Aromal004/GitChat.git" 
+  },
+  { 
+    year: "2026", 
+    title: "Comparative Benchmarking And Recommendation System for Cloud VM Implementations", 
+    description: "Built a workload-aware multi-cloud VM recommendation system using Bayesian Optimization and contextual bandit reinforcement learning to optimize cost-performance selection across Amazon Web Services, Microsoft Azure, and Google Cloud Platform.",
+    link: "https://github.com/Aromal004/Recommendation-Pipleine.git" 
+  },
+  { 
     year: "2025", 
     title: "PostgreSQL Security & Monitoring System", 
     description: "This project enhances PostgreSQL security, index integrity, and monitoring by implementing advanced database management features. It ensures strict password policies, automated index integrity checks, historical performance tracking, and real-time monitoring using Prometheus and Grafana.",

@@ -7,35 +7,21 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'bounce-slow': 'bounce 3s infinite',
-      },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
-        }
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
       fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'display': ['Syne', 'sans-serif'],
+        'code': ['Fira Code', 'monospace'],
+        'body': ['DM Sans', 'sans-serif'],
       },
-      spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
+      colors: {
+        'cyber-cyan':   '#00f5d4',
+        'cyber-blue':   '#4361ee',
+        'cyber-purple': '#7b2fff',
+        'cyber-green':  '#39ff14',
+        'dark-primary': '#050914',
+        'dark-secondary': '#080d1e',
+        'dark-card':    '#0c1221',
       },
-      zIndex: {
-        '60': '60',
-        '70': '70',
-      }
     },
   },
   plugins: [],
 }
-
-

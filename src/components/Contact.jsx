@@ -1,232 +1,148 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaInstagram, FaPaperPlane } from 'react-icons/fa';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [sent, setSent] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setSent(true);
+    setTimeout(() => setSent(false), 3000);
   };
 
   const contactInfo = [
-    {
-      icon: FaEnvelope,
-      title: 'Email',
-      value: 'aromalaj9111@gmail.com',
-      href: 'mailto:aromalaj9111@gmail.com'
-    },
-    {
-      icon: FaPhone,
-      title: 'Phone',
-      value: '+91 956 271 7654',
-      href: 'tel:+919562717654'
-    },
-    {
-      icon: FaMapMarkerAlt,
-      title: 'Location',
-      value: 'Kerala, India',
-      href: '#'
-    }
+    { icon: FaEnvelope, label: 'Email',    value: 'aromalaj9111@gmail.com',  href: 'mailto:aromalaj9111@gmail.com' },
+    { icon: FaPhone,    label: 'Phone',    value: '+91 956 271 7654',         href: 'tel:+919562717654' },
+    { icon: FaMapMarkerAlt, label: 'Location', value: 'Kerala, India',       href: '#' },
   ];
 
-  const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com/Aromal004', label: 'GitHub' },
-    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/aromal-a-j-46931a281/', label: 'LinkedIn' },
-    { icon: FaInstagram, href: 'https://www.instagram.com/a.r_o.m.a.l/', label: 'Instagram' }
+  const socials = [
+    { icon: FaGithub,    href: 'https://github.com/Aromal004',                        label: 'GitHub' },
+    { icon: FaLinkedin,  href: 'https://www.linkedin.com/in/aromal-a-j-46931a281/',   label: 'LinkedIn' },
+    { icon: FaInstagram, href: 'https://www.instagram.com/a.r_o.m.a.l/',             label: 'Instagram' },
   ];
 
   return (
-    <div id="Contact" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 to-purple-900 dark:from-gray-800 dark:to-gray-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+    <section id="Contact" style={{ padding: 'clamp(3rem, 8vw, 6rem) 0', background: 'var(--bg-secondary)', position: 'relative' }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px',
+        background: 'linear-gradient(90deg, transparent, rgba(67,97,238,0.25), transparent)' }} />
+
+      <div className="container-main">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16"
+          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.7 }}
+          style={{ marginBottom: 'clamp(2.5rem, 6vw, 3.5rem)' }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4">
-            Get In Touch
+          <p className="section-tag" style={{ marginBottom: '0.5rem' }}>// get in touch</p>
+          <h2 className="font-display" style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', fontWeight: 800, color: '#fff' }}>
+            Contact<span style={{ color: 'var(--accent-cyan)' }}>.</span>
           </h2>
+          <div style={{ marginTop: '0.75rem', height: '2px', width: 'clamp(50px, 10vw, 60px)',
+            background: 'linear-gradient(90deg, var(--accent-cyan), var(--accent-blue))' }} />
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Contact Information */}
+        <div style={{ display: 'grid', gap: 'clamp(2rem, 5vw, 3rem)' }} className="lg:grid-cols-2">
+          {/* Left - Info */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6 sm:space-y-8"
+            initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.7 }}
           >
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Let's Connect</h3>
-              <p className="text-gray-300 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
-                I'm always open to discussing new opportunities, interesting projects, 
-                or just having a chat about technology and innovation.
-              </p>
-            </div>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.75, marginBottom: 'clamp(1.5rem, 4vw, 2rem)', fontSize: 'clamp(0.85rem, 2.2vw, 0.96rem)', maxWidth: '420px' }}>
+              I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and innovation.
+            </p>
 
-            {/* Contact Info Cards */}
-            <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={index}
-                  href={info.href}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02, x: 10 }}
-                  className="flex items-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 touch-manipulation"
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.75rem, 2vw, 1rem)', marginBottom: 'clamp(1.5rem, 4vw, 2rem)' }}>
+              {contactInfo.map(({ icon: Icon, label, value, href }, i) => (
+                <motion.a key={i} href={href}
+                  className="card-glass"
+                  whileHover={{ x: 6, borderColor: 'var(--border-hover)' }}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: 'clamp(0.75rem, 2vw, 1rem)',
+                    padding: 'clamp(0.85rem, 2.2vw, 1rem) clamp(1rem, 2.5vw, 1.25rem)', textDecoration: 'none',
+                    transition: 'all 0.3s'
+                  }}
                 >
-                  <div className="p-2 sm:p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg mr-3 sm:mr-4">
-                    <info.icon className="text-white text-lg sm:text-xl" />
+                  <div style={{
+                    width: 'clamp(34px, 8vw, 38px)', height: 'clamp(34px, 8vw, 38px)', borderRadius: '8px',
+                    background: 'linear-gradient(135deg, var(--accent-cyan), var(--accent-blue))',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
+                  }}>
+                    <Icon size={15} style={{ color: '#050914' }} />
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-white font-semibold text-sm sm:text-base">{info.title}</h4>
-                    <p className="text-gray-300 text-sm sm:text-base">{info.value}</p>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <p className="font-code" style={{ fontSize: 'clamp(0.62rem, 1.5vw, 0.68rem)', color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: '2px' }}>{label}</p>
+                    <p style={{ color: 'var(--text-primary)', fontSize: 'clamp(0.8rem, 2vw, 0.88rem)', wordBreak: 'break-word' }}>{value}</p>
                   </div>
                 </motion.a>
               ))}
             </div>
 
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="pt-4"
-            >
-              <h4 className="text-white font-semibold mb-4 text-sm sm:text-base">Follow Me</h4>
-              <div className="flex space-x-4">
-                {socialLinks.map((link, index) => (
-                  <motion.a
-                    key={index}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, y: -3 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="p-3 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/20 transition-all duration-300 touch-manipulation"
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <link.icon size={20} className="sm:w-6 sm:h-6" />
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
+            <div style={{ display: 'flex', gap: 'clamp(8px, 2vw, 10px)', flexWrap: 'wrap' }}>
+              {socials.map(({ icon: Icon, href, label }) => (
+                <motion.a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                  className="social-btn" aria-label={label}
+                  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+                >
+                  <Icon size={17} />
+                </motion.a>
+              ))}
+            </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Right - Form */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
+            initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                <label htmlFor="name" className="block text-white text-sm font-medium mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
-                  placeholder="Your name"
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <label htmlFor="email" className="block text-white text-sm font-medium mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
-                  placeholder="your.email@example.com"
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <label htmlFor="message" className="block text-white text-sm font-medium mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 resize-none text-sm sm:text-base"
-                  placeholder="Your message..."
-                />
-              </motion.div>
-
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-lg hover:shadow-lg transition-all duration-300 text-sm sm:text-base touch-manipulation"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                Send Message
-              </motion.button>
-            </form>
+            <div className="terminal-box" style={{ padding: 0 }}>
+              <div style={{ padding: 'clamp(8px, 2vw, 10px) clamp(12px, 3vw, 16px) clamp(6px, 1.5vw, 8px)', display: 'flex', alignItems: 'center', gap: '6px', borderBottom: '1px solid rgba(0,245,212,0.08)' }}>
+                <div style={{ width: 'clamp(8px, 2vw, 9px)', height: 'clamp(8px, 2vw, 9px)', borderRadius: '50%', background: '#ff5f57', flexShrink: 0 }} />
+                <div style={{ width: 'clamp(8px, 2vw, 9px)', height: 'clamp(8px, 2vw, 9px)', borderRadius: '50%', background: '#febc2e', flexShrink: 0 }} />
+                <div style={{ width: 'clamp(8px, 2vw, 9px)', height: 'clamp(8px, 2vw, 9px)', borderRadius: '50%', background: '#28c840', flexShrink: 0 }} />
+                <span className="font-code" style={{ fontSize: 'clamp(0.62rem, 1.5vw, 0.68rem)', color: 'var(--text-muted)', marginLeft: '6px' }}>
+                  send_message.sh
+                </span>
+              </div>
+              <form onSubmit={handleSubmit} style={{ padding: 'clamp(1.25rem, 3.5vw, 1.75rem)', display: 'flex', flexDirection: 'column', gap: 'clamp(1rem, 2.5vw, 1.25rem)' }}>
+                <div>
+                  <label className="font-code" style={{ display: 'block', fontSize: 'clamp(0.68rem, 1.6vw, 0.72rem)', color: 'var(--accent-cyan)', marginBottom: '6px', letterSpacing: '0.08em' }}>
+                    $ name:
+                  </label>
+                  <input type="text" className="input-field" placeholder="Your name" required
+                    value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
+                </div>
+                <div>
+                  <label className="font-code" style={{ display: 'block', fontSize: 'clamp(0.68rem, 1.6vw, 0.72rem)', color: 'var(--accent-cyan)', marginBottom: '6px', letterSpacing: '0.08em' }}>
+                    $ email:
+                  </label>
+                  <input type="email" className="input-field" placeholder="your@email.com" required
+                    value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
+                </div>
+                <div>
+                  <label className="font-code" style={{ display: 'block', fontSize: 'clamp(0.68rem, 1.6vw, 0.72rem)', color: 'var(--accent-cyan)', marginBottom: '6px', letterSpacing: '0.08em' }}>
+                    $ message:
+                  </label>
+                  <textarea className="input-field" rows={5} placeholder="Your message..." required
+                    value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})}
+                    style={{ resize: 'none', minHeight: 'clamp(100px, 25vw, 120px)' }} />
+                </div>
+                <motion.button type="submit"
+                  className="btn-filled-cyber"
+                  whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}
+                  style={{ width: '100%', justifyContent: 'center', fontSize: 'clamp(0.75rem, 1.8vw, 0.82rem)' }}
+                >
+                  <FaPaperPlane size={13} />
+                  {sent ? 'Message Sent! ✓' : 'Send Message'}
+                </motion.button>
+              </form>
+            </div>
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

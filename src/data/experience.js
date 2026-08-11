@@ -1,10 +1,18 @@
 export const experiences = [
   {
-    year: "Jan 2026 - Present",
+    year: "Aug 2026 - Present",
+    role: "Delivery Consultant",
+    company: "IBM Private Ltd.",
+    description:
+      "",
+    technologies: ["JavaScript", "React", "Node.js"],
+  },
+  {
+    year: "Jan 2026 - July 2026",
     role: "Delivery Consultant Intern",
     company: "IBM Private Ltd.",
     description:
-      "Developing a health check asset for the organization.",
+      "Developed a health check asset for the organization.",
     technologies: ["JavaScript", "React", "Node.js"],
   },
   {

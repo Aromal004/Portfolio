@@ -35,16 +35,27 @@ const Experience = () => {
         </motion.div>
 
         {/* Timeline */}
-        <motion.div
-          variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }}
-          style={{ position: 'relative', paddingLeft: 'clamp(1.5rem, 4vw, 2.5rem)' }}
-        >
-          {/* Vertical line */}
+        <div style={{ position: 'relative' }}>
+          {/* Vertical line — sits outside the scroll container so it spans full height */}
           <div className="hidden sm:block" style={{
-            position: 'absolute', left: '5px', top: '8px',
+            position: 'absolute', left: 'clamp(1.5rem, 4vw, 2.5rem)', top: '8px',
             bottom: 0, width: '2px',
-            background: 'linear-gradient(to bottom, var(--accent-cyan), var(--accent-blue), var(--accent-purple), transparent)'
+            background: 'linear-gradient(to bottom, var(--accent-cyan), var(--accent-blue), var(--accent-purple), transparent)',
+            pointerEvents: 'none', zIndex: 0
           }} />
+
+          <motion.div
+            variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }}
+            style={{
+              position: 'relative',
+              paddingLeft: 'clamp(1.5rem, 4vw, 2.5rem)',
+              maxHeight: 'clamp(420px, 55vh, 600px)',
+              overflowY: 'auto',
+              paddingRight: '0.5rem',
+              scrollbarWidth: 'thin',
+              scrollbarColor: 'var(--accent-cyan) transparent',
+            }}
+          >
 
           {experiences.map((exp, index) => (
             <motion.div
@@ -89,7 +100,8 @@ const Experience = () => {
               </motion.div>
             </motion.div>
           ))}
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
